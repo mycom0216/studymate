@@ -11,6 +11,7 @@ try { process.loadEnvFile(`${ROOT}.env`); } catch { /* .env 없음 */ }
 // 명령행 옵션으로 실제 생성 답변 평가와 결과 JSON 저장을 각각 선택합니다.
 const args = process.argv.slice(2);
 const useLlm = args.includes('--llm');
+const useEmbeddings = args.includes('--embeddings') || process.env.EMBEDDINGS === 'on';
 const outFile = args.includes('--out') ? args[args.indexOf('--out') + 1] : null;
 // 일반 60개, 어려운 12개, 범위 밖 20개 질문 세트의 원본을 읽습니다.
 const set = JSON.parse(readFileSync(`${ROOT}evidence/eval-questions.json`, 'utf8'));
@@ -18,8 +19,9 @@ const set = JSON.parse(readFileSync(`${ROOT}evidence/eval-questions.json`, 'utf8
 const pct = (a, b) => `${((100 * a) / b).toFixed(1)}% (${a}/${b})`;
 
 // 고정 난수 시드로 규칙 기반 퀴즈 결과를 재현하며 평가 서비스는 메모리 DB를 사용합니다.
-const svc = await createServices({ llm: await new LLM({ provider: useLlm ? undefined : 'off' }).init(), threshold: 0.3, rng: (() => { let s = 11; return () => (s = (s * 1664525 + 1013904223) % 4294967296) / 4294967296; })() });
-const report = { date: new Date().toISOString().slice(0, 10), chunks: svc.kb.chunks.length, inScope: set.inScope.length, outOfScope: set.outOfScope.length };
+const svc = await createServices({ llm: await new LLM({ provider: useLlm ? undefined : 'off' }).init(), embeddings: useEmbeddings, threshold: 0.3, rng: (() => { let s = 11; return () => (s = (s * 1664525 + 1013904223) % 4294967296) / 4294967296; })() });
+if (useEmbeddings && !svc.kb.retriever.vectors) throw new Error('Requested embeddings unavailable; refusing silent BM25 fallback');
+const report = { retrievalMode: svc.kb.retriever.mode, date: new Date().toISOString().slice(0, 10), chunks: svc.kb.chunks.length, inScope: set.inScope.length, outOfScope: set.outOfScope.length };
 
 // 1) 검색 정확도
 // 정답 청크의 1위·상위 4위 적중 횟수와 역순위 합계를 초기화합니다.
