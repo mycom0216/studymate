@@ -94,6 +94,7 @@ if (useLlm) {
     gen[r.generator]++; ms.push(r.latencyMs);
     if (r.sources.some((s) => s.id === id)) citeOk++;
     rows.push({ q, expected: id, generator: r.generator, cited: r.sources.map((s) => s.id), answer: r.answer, note: r.note });
+    console.error(`[LLM] ${rows.length}/${set.inScope.length} in-scope: ${r.generator} (${r.latencyMs}ms)`);
   }
   let rejected = 0;
   const outRows = [];
@@ -101,6 +102,7 @@ if (useLlm) {
     const r = await svc.chat.ask('eval-learner-01', q);
     if (r.generator === 'none') rejected++;
     outRows.push({ q, generator: r.generator, answer: r.answer });
+    console.error(`[LLM] ${outRows.length}/${set.outOfScope.length} out-of-scope: ${r.generator}`);
   }
   // 응답 시간을 오름차순으로 정렬해 중앙값 및 90백분위 위치의 값을 산출합니다.
   ms.sort((a, b) => a - b);

@@ -33,6 +33,7 @@ export class Retriever {
     this.useEmbeddings = useEmbeddings;
     // vectors: 조각별 임베딩 벡터(없으면 null → BM25 전용). init() 이 채웁니다.
     this.vectors = null;
+    this.queryVectors = new Map();
     // 색인 만들기: 조각마다 토큰 빈도표(tf: 토큰 → 등장 횟수)와 길이(len)를 미리 계산해 둡니다.
     // 제목을 두 번 넣는 것은 제목에 있는 단어에 가중치를 주려는 간단한 장치입니다.
     this.docs = chunks.map((c) => {
@@ -137,7 +138,13 @@ export class Retriever {
     let cos = null;
     if (this.vectors) {
       try {
-        const [qv] = await this.embed([query], 5000);
+        let qv = this.queryVectors.get(query);
+        if (!qv) {
+          [qv] = await this.embed([query], 5000);
+          if (!Array.isArray(qv) || qv.length !== this.vectors[0]?.length || !qv.every(Number.isFinite)) throw new Error('Invalid query vector');
+          if (this.queryVectors.size >= 512) this.queryVectors.delete(this.queryVectors.keys().next().value);
+          this.queryVectors.set(query, qv);
+        }
         cos = this.vectors.map((v) => cosine(qv, v));
       } catch { cos = null; }
     }
