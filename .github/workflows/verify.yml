@@ -18,3 +18,4 @@ jobs:
           node-version: '24'
       - run: npm test
       - run: npm run eval
+      - run: node tools/verify-hybrid.mjs evidence/eval-ollama-hybrid-summary.json
