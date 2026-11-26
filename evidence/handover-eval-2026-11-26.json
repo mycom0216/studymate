@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-26",
+  "chunks": 44,
+  "inScope": 60,
+  "outOfScope": 20,
+  "retrieval": {
+    "hit1": "100.0% (60/60)",
+    "hit4": "100.0% (60/60)",
+    "mrr": 1,
+    "misses": []
+  },
+  "retrievalHard": {
+    "questions": 12,
+    "hit1": "83.3% (10/12)",
+    "hit4": "100.0% (12/12)",
+    "misses": [
+      {
+        "q": "시험 문제를 통째로 외워서 처음 보는 문제는 못 푸는 것 같은 모델 상태",
+        "expected": "ML-04",
+        "got": [
+          "WB-06",
+          "DA-03",
+          "WB-01",
+          "ML-04"
+        ]
+      },
+      {
+        "q": "훈련용이랑 평가용 데이터를 섞으면 생기는 문제",
+        "expected": "DA-05",
+        "got": [
+          "DL-05",
+          "ML-05",
+          "ML-02",
+          "DA-05"
+        ]
+      }
+    ]
+  },
+  "threshold": [
+    {
+      "threshold": 0.15,
+      "answeredInScope": "100.0% (60/60)",
+      "answeredHard": "100.0% (12/12)",
+      "rejectedOutOfScope": "55.0% (11/20)"
+    },
+    {
+      "threshold": 0.2,
+      "answeredInScope": "100.0% (60/60)",
+      "answeredHard": "91.7% (11/12)",
+      "rejectedOutOfScope": "65.0% (13/20)"
+    },
+    {
+      "threshold": 0.25,
+      "answeredInScope": "100.0% (60/60)",
+      "answeredHard": "83.3% (10/12)",
+      "rejectedOutOfScope": "65.0% (13/20)"
+    },
+    {
+      "threshold": 0.3,
+      "answeredInScope": "100.0% (60/60)",
+      "answeredHard": "83.3% (10/12)",
+      "rejectedOutOfScope": "85.0% (17/20)"
+    },
+    {
+      "threshold": 0.4,
+      "answeredInScope": "96.7% (58/60)",
+      "answeredHard": "66.7% (8/12)",
+      "rejectedOutOfScope": "90.0% (18/20)"
+    }
+  ],
+  "quiz": {
+    "generated": 132,
+    "byType": {
+      "mcq": 44,
+      "cloze": 44,
+      "ox": 44
+    },
+    "answerLeaked": 0,
+    "answerMissingFromOptions": 0,
+    "duplicateOptions": 0,
+    "chunksWithoutQuiz": 0
+  }
+}

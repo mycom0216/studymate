@@ -1,0 +1,81 @@
+<!doctype html>
+<!-- index.html — StudyMate 화면의 뼈대(구조). 모양은 style.css, 동작은 app.js 가 담당합니다. -->
+<!-- 이 문서에는 "빈 칸(id 가 붙은 요소)"만 있고, 내용은 app.js 가 서버에서 받아 채웁니다. -->
+<!-- (doctype 아래에 두는 이유: 문서 맨 위의 doctype 선언이 먼저 와야 브라우저가 표준 모드로 렌더링합니다.) -->
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<!-- 뷰포트 설정: 휴대폰 화면 폭에 맞춰 표시(반응형). 최소한의 모바일 대응입니다. -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>StudyMate - AI 맞춤형 학습 도우미</title>
+<!-- 스타일시트 연결 -->
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<!-- 상단 바: 서비스 이름, 학습자 이름 입력칸(#name), AI 연결 상태 표시(#llm — app.js 가 채움) -->
+<header>
+  <div class="brand"><span class="logo">S</span><div><b>StudyMate</b><small>RAG 챗봇 기반 AI 맞춤형 학습 도우미</small></div></div>
+  <div class="who"><label>이름 <input id="name" maxlength="20" placeholder="학습자"></label><span id="llm" class="pill" title="답변 생성 방식"></span></div>
+</header>
+<!-- 탭 메뉴: data-tab 값이 아래 section 의 id 와 같아야 app.js 의 showTab 이 연결해 줍니다. class="on" = 현재 선택된 탭 -->
+<nav id="tabs">
+  <button data-tab="chat" class="on">학습 챗봇</button>
+  <button data-tab="quiz">퀴즈</button>
+  <button data-tab="progress">내 학습현황</button>
+  <button data-tab="materials">자료함</button>
+  <button data-tab="stats">운영 지표</button>
+</nav>
+<!-- 본문: 탭마다 section 하나. class="tab on" 인 것만 보이고(style.css), 나머지는 숨겨집니다. -->
+<main>
+  <!-- [탭 1] 학습 챗봇: #log 대화창(aria-live: 새 메시지를 화면 낭독기가 읽어 줌), #examples 예시 질문, 질문 입력 폼(최대 500자 = 서버 제한과 동일) -->
+  <section id="chat" class="tab on">
+    <div id="log" class="log" aria-live="polite"></div>
+    <div id="examples" class="chips"></div>
+    <form id="chatForm" class="row">
+      <!-- 설명 수준 선택: normal(핵심만) / easy(쉬운 말로 풀어서) -->
+      <select id="level" title="설명 수준"><option value="normal">보통</option><option value="easy">쉽게</option></select>
+      <input id="q" maxlength="500" placeholder="자료에 대해 궁금한 것을 물어보세요 (예: 과대적합이 뭐야?)" autocomplete="off">
+      <button class="primary">질문</button>
+    </form>
+  </section>
+
+  <!-- [탭 2] 퀴즈: 범위·문항 수·AI 출제 여부를 고르고 시작하면 #quizBox 에 문제 카드가 나타납니다. -->
+  <section id="quiz" class="tab">
+    <div class="card">
+      <h2>퀴즈 풀기</h2>
+      <div class="row wrap">
+        <label>범위 <select id="quizUnit"></select></label>
+        <label>문항 수 <select id="quizCount"><option>3</option><option selected>5</option><option>10</option></select></label>
+        <label class="check"><input type="checkbox" id="quizAi" checked> AI 출제(Claude/ChatGPT 연결 시)</label>
+        <button id="quizStart" class="primary">시작</button>
+      </div>
+      <p class="muted">「약점 복습」은 많이 틀린 개념과 복습할 시점이 된 개념을 우선 출제합니다.</p>
+    </div>
+    <div id="quizBox"></div>
+  </section>
+
+  <!-- [탭 3] 내 학습현황: #progBox 를 app.js 가 채웁니다. -->
+  <section id="progress" class="tab">
+    <div id="progBox"></div>
+  </section>
+
+  <!-- [탭 4] 자료함: 내 학습 자료 추가(제목·본문 직접 입력 또는 .txt/.md 파일 불러오기). 본문 최대 30000자(서버 제한과 동일). -->
+  <section id="materials" class="tab">
+    <div class="card">
+      <h2>내 학습 자료 추가</h2>
+      <p class="muted">텍스트를 붙여 넣거나 .txt/.md 파일을 불러오세요. <code>## 제목</code>으로 나누면 항목이 되고, <code>**용어**</code>로 표시하면 퀴즈의 핵심 용어가 됩니다. (PDF는 텍스트로 복사해 붙여 넣어 주세요)</p>
+      <input id="matTitle" maxlength="60" placeholder="자료 제목 (예: 운영체제 3주차)">
+      <textarea id="matText" rows="8" maxlength="30000" placeholder="학습 내용을 붙여 넣으세요 (40자 이상)"></textarea>
+      <div class="row wrap"><input type="file" id="matFile" accept=".txt,.md,text/plain,text/markdown"><button id="matAdd" class="primary">자료 추가</button></div>
+      <p id="matMsg" class="muted"></p>
+    </div>
+    <div id="unitList"></div>
+  </section>
+
+  <!-- [탭 5] 운영 지표(전체 학습자 합계 통계) -->
+  <section id="stats" class="tab"><div id="statsBox"></div></section>
+</main>
+<!-- 화면 동작 스크립트. type="module": 모듈 모드로 실행되어 전역 변수를 오염시키지 않고 문서가 다 그려진 뒤 실행됩니다. -->
+<script src="/app.js" type="module"></script>
+</body>
+</html>

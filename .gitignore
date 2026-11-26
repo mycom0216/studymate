@@ -1,0 +1,12 @@
+
+.env
+.env.*
+!.env.example
+node_modules/
+data/*.db
+data/*.db-*
+data/*.db.*
+tmp/
+__pycache__/
+*.pyc
+~$*

@@ -1,0 +1,799 @@
+{
+  "date": "2026-11-24",
+  "chunks": 44,
+  "inScope": 60,
+  "outOfScope": 20,
+  "retrieval": {
+    "hit1": "100.0% (60/60)",
+    "hit4": "100.0% (60/60)",
+    "mrr": 1,
+    "misses": []
+  },
+  "retrievalHard": {
+    "questions": 12,
+    "hit1": "83.3% (10/12)",
+    "hit4": "100.0% (12/12)",
+    "misses": [
+      {
+        "q": "시험 문제를 통째로 외워서 처음 보는 문제는 못 푸는 것 같은 모델 상태",
+        "expected": "ML-04",
+        "got": [
+          "WB-06",
+          "DA-03",
+          "WB-01",
+          "ML-04"
+        ]
+      },
+      {
+        "q": "훈련용이랑 평가용 데이터를 섞으면 생기는 문제",
+        "expected": "DA-05",
+        "got": [
+          "DL-05",
+          "ML-05",
+          "ML-02",
+          "DA-05"
+        ]
+      }
+    ]
+  },
+  "threshold": [
+    {
+      "threshold": 0.15,
+      "answeredInScope": "100.0% (60/60)",
+      "answeredHard": "100.0% (12/12)",
+      "rejectedOutOfScope": "55.0% (11/20)"
+    },
+    {
+      "threshold": 0.2,
+      "answeredInScope": "100.0% (60/60)",
+      "answeredHard": "91.7% (11/12)",
+      "rejectedOutOfScope": "65.0% (13/20)"
+    },
+    {
+      "threshold": 0.25,
+      "answeredInScope": "100.0% (60/60)",
+      "answeredHard": "83.3% (10/12)",
+      "rejectedOutOfScope": "65.0% (13/20)"
+    },
+    {
+      "threshold": 0.3,
+      "answeredInScope": "100.0% (60/60)",
+      "answeredHard": "83.3% (10/12)",
+      "rejectedOutOfScope": "85.0% (17/20)"
+    },
+    {
+      "threshold": 0.4,
+      "answeredInScope": "96.7% (58/60)",
+      "answeredHard": "66.7% (8/12)",
+      "rejectedOutOfScope": "90.0% (18/20)"
+    }
+  ],
+  "quiz": {
+    "generated": 132,
+    "byType": {
+      "mcq": 44,
+      "cloze": 44,
+      "ox": 44
+    },
+    "answerLeaked": 0,
+    "answerMissingFromOptions": 0,
+    "duplicateOptions": 0,
+    "chunksWithoutQuiz": 0
+  },
+  "llm": {
+    "provider": "ollama:kanana2:3b",
+    "generators": {
+      "llm": 55,
+      "extractive": 5,
+      "none": 0
+    },
+    "citedExpectedChunk": "100.0% (60/60)",
+    "medianMs": 2550,
+    "p90Ms": 5274,
+    "outOfScopeRejected": "85.0% (17/20)",
+    "rows": [
+      {
+        "q": "변수에 타입 선언 안 해도 되는 이유가 뭐야?",
+        "expected": "PY-01",
+        "generator": "llm",
+        "cited": [
+          "PY-01"
+        ],
+        "answer": "파이썬은 동적 타이핑 언어라서 변수에 타입 선언을 하지 않아도 됩니다.",
+        "note": null
+      },
+      {
+        "q": "int float str bool 자료형 종류",
+        "expected": "PY-01",
+        "generator": "llm",
+        "cited": [
+          "PY-01"
+        ],
+        "answer": "정수 int, 실수 float, 문자열 str, 참과 거짓을 나타내는 bool이 있습니다.",
+        "note": null
+      },
+      {
+        "q": "리스트랑 튜플은 뭐가 달라?",
+        "expected": "PY-02",
+        "generator": "llm",
+        "cited": [
+          "PY-02"
+        ],
+        "answer": "리스트는 대괄호 [], 튜플은 소괄호 ()로 만듭니다. 리스트는 요소를 바꿀 수 있지만, 튜플은 요소를 바꿀 수 없습니다. 인덱스는 0부터 시작하고, -1은 마지막 요소를 가리킵니다.",
+        "note": null
+      },
+      {
+        "q": "인덱스 -1은 뭘 가리켜?",
+        "expected": "PY-02",
+        "generator": "llm",
+        "cited": [
+          "PY-02"
+        ],
+        "answer": "마지막 요소를 가리킵니다.",
+        "note": null
+      },
+      {
+        "q": "딕셔너리는 어떻게 값을 저장해?",
+        "expected": "PY-03",
+        "generator": "llm",
+        "cited": [
+          "PY-03"
+        ],
+        "answer": "딕셔너리는 키와 값을 쌍으로 저장합니다. 키를 사용해 값을 조회합니다.",
+        "note": null
+      },
+      {
+        "q": "중복을 허용하지 않는 자료구조는?",
+        "expected": "PY-03",
+        "generator": "llm",
+        "cited": [
+          "PY-03"
+        ],
+        "answer": "집합입니다.",
+        "note": null
+      },
+      {
+        "q": "for문과 while문 차이",
+        "expected": "PY-04",
+        "generator": "llm",
+        "cited": [
+          "PY-04"
+        ],
+        "answer": "for문은 반복 횟수가 정해져 있을 때, while문은 조건이 참인 동안 반복합니다.",
+        "note": null
+      },
+      {
+        "q": "반복문 중간에 빠져나오려면?",
+        "expected": "PY-04",
+        "generator": "llm",
+        "cited": [
+          "PY-04"
+        ],
+        "answer": "break입니다.",
+        "note": null
+      },
+      {
+        "q": "함수에서 값을 돌려주는 키워드",
+        "expected": "PY-05",
+        "generator": "llm",
+        "cited": [
+          "PY-05"
+        ],
+        "answer": "return입니다.",
+        "note": null
+      },
+      {
+        "q": "try except는 언제 써?",
+        "expected": "PY-06",
+        "generator": "llm",
+        "cited": [
+          "PY-06"
+        ],
+        "answer": "예외가 발생할 때 finally 블록을 실행하려면 try-except 구문을 사용합니다.",
+        "note": null
+      },
+      {
+        "q": "pip는 뭐하는 거야",
+        "expected": "PY-07",
+        "generator": "extractive",
+        "cited": [
+          "PY-07"
+        ],
+        "answer": "외부 라이브러리는 pip로 설치합니다.",
+        "note": "AI 답변이 근거 검사를 통과하지 못해 자료 원문으로 대신했어요(ungrounded)."
+      },
+      {
+        "q": "가상환경을 왜 만들어?",
+        "expected": "PY-07",
+        "generator": "llm",
+        "cited": [
+          "PY-07"
+        ],
+        "answer": "프로젝트마다 라이브러리 버전이 충돌하지 않도록 가상환경을 만들어 사용하는 것이 좋습니다.",
+        "note": null
+      },
+      {
+        "q": "pandas에서 표 데이터를 뭐라고 불러?",
+        "expected": "DA-01",
+        "generator": "llm",
+        "cited": [
+          "DA-01"
+        ],
+        "answer": "pandas에서 표 데이터를 DataFrame이라고 부릅니다.",
+        "note": null
+      },
+      {
+        "q": "결측치는 어떻게 채워?",
+        "expected": "DA-02",
+        "generator": "llm",
+        "cited": [
+          "DA-02"
+        ],
+        "answer": "pandas에서는 결측치를 isnull로 찾아내고, 평균이나 중앙값으로 채워넣을 수 있습니다.",
+        "note": null
+      },
+      {
+        "q": "이상치를 찾는 IQR 방법",
+        "expected": "DA-03",
+        "generator": "llm",
+        "cited": [
+          "DA-03"
+        ],
+        "answer": "사분위수 범위(Interquartile Range)의 1.5배를 벗어나는 값을 이상치라고 합니다.",
+        "note": null
+      },
+      {
+        "q": "정규화와 표준화의 차이는?",
+        "expected": "DA-04",
+        "generator": "llm",
+        "cited": [
+          "DA-04"
+        ],
+        "answer": "정규화는 값을 0~1 사이로 맞추는 것이고, 표준화는 평균을 0, 표준편차를 1로 맞추는 것입니다.",
+        "note": null
+      },
+      {
+        "q": "범주형 데이터를 숫자로 바꾸는 방법",
+        "expected": "DA-04",
+        "generator": "llm",
+        "cited": [
+          "DA-04"
+        ],
+        "answer": "원-핫 인코딩",
+        "note": null
+      },
+      {
+        "q": "테스트 데이터를 학습에 쓰면 왜 안 돼?",
+        "expected": "DA-05",
+        "generator": "llm",
+        "cited": [
+          "DA-05"
+        ],
+        "answer": "테스트 데이터를 학습에 쓰면 성능이 부풀려지는 데이터 누수가 생깁니다.",
+        "note": null
+      },
+      {
+        "q": "데이터 누수란?",
+        "expected": "DA-05",
+        "generator": "llm",
+        "cited": [
+          "DA-05"
+        ],
+        "answer": "데이터 누수란 테스트 데이터를 학습에 포함시켜 모델의 일반화 성능을 과대평가하는 현상입니다.",
+        "note": null
+      },
+      {
+        "q": "히스토그램은 언제 써?",
+        "expected": "DA-06",
+        "generator": "llm",
+        "cited": [
+          "DA-06"
+        ],
+        "answer": "히스토그램은 연속된 데이터의 분포를 시각화하기 위해 사용합니다.",
+        "note": null
+      },
+      {
+        "q": "머신러닝이 뭔지 알려줘",
+        "expected": "ML-01",
+        "generator": "llm",
+        "cited": [
+          "ML-01"
+        ],
+        "answer": "머신러닝은 데이터를 통해 패턴을 학습하여 예측을 수행하는 기술입니다.",
+        "note": null
+      },
+      {
+        "q": "회귀와 분류는 어떻게 구분해?",
+        "expected": "ML-02",
+        "generator": "llm",
+        "cited": [
+          "ML-02"
+        ],
+        "answer": "회귀 문제는 연속적인 값을 예측하고, 분류 문제는 범주(클래스) 중 하나를 예측합니다.",
+        "note": null
+      },
+      {
+        "q": "군집화 대표 알고리즘",
+        "expected": "ML-03",
+        "generator": "llm",
+        "cited": [
+          "ML-03"
+        ],
+        "answer": "K-평균은 군집화 대표 알고리즘입니다.",
+        "note": null
+      },
+      {
+        "q": "과대적합이 뭐야?",
+        "expected": "ML-04",
+        "generator": "llm",
+        "cited": [
+          "ML-04"
+        ],
+        "answer": "과대적합은 모델이 학습 데이터셋에 너무 잘 맞춰져서, 새로운 데이터에 대한 성능이 떨어지는 현상입니다.",
+        "note": null
+      },
+      {
+        "q": "정밀도와 재현율의 차이는?",
+        "expected": "ML-05",
+        "generator": "llm",
+        "cited": [
+          "ML-05"
+        ],
+        "answer": "정밀도와 재현율은 분류 문제에서 모델의 성능을 평가하는 지표입니다. 정밀도는 모델이 예측한 양성 중 실제 양성의 비율을 의미하고, 재현율은 실제 양성 중 모델이 맞춘 비율을 의미합니다.",
+        "note": null
+      },
+      {
+        "q": "불균형 데이터에서 정확도만 보면 안 되는 이유",
+        "expected": "ML-05",
+        "generator": "extractive",
+        "cited": [
+          "ML-05"
+        ],
+        "answer": "분류 모델의 정확도는 전체 중 맞힌 비율입니다. 정상이 99퍼센트인 불균형 데이터에서는 정확도만 보면 속기 쉽습니다.",
+        "note": "AI 답변이 근거 검사를 통과하지 못해 자료 원문으로 대신했어요(ungrounded)."
+      },
+      {
+        "q": "교차검증은 어떻게 하는 거야?",
+        "expected": "ML-06",
+        "generator": "llm",
+        "cited": [
+          "ML-06"
+        ],
+        "answer": "교차검증은 데이터를 여러 그룹으로 나눠 각각 검증 데이터로 사용하며 성능을 평가하는 방법입니다. 데이터를 여러 번 반복해서 검증할 수 있습니다.",
+        "note": null
+      },
+      {
+        "q": "학습률이 너무 크면 어떻게 돼?",
+        "expected": "ML-07",
+        "generator": "llm",
+        "cited": [
+          "ML-07"
+        ],
+        "answer": "학습률이 너무 크면 손실 함수의 기울기가 너무 커서 모델이 발산할 수 있습니다.",
+        "note": null
+      },
+      {
+        "q": "랜덤 포레스트는 의사결정나무와 뭐가 달라?",
+        "expected": "ML-08",
+        "generator": "llm",
+        "cited": [
+          "ML-08"
+        ],
+        "answer": "랜덤 포레스트는 여러 개의 의사결정나무를 만들어 평균을 내는 반면, 단일 의사결정나무는 한 개의 트리로 예측을 합니다.",
+        "note": null
+      },
+      {
+        "q": "퍼셉트론이 뭐야?",
+        "expected": "DL-01",
+        "generator": "llm",
+        "cited": [
+          "DL-01"
+        ],
+        "answer": "퍼셉트론은 입력층과 출력층 사이에 여러 개의 층을 가진 인공 신경망입니다.",
+        "note": null
+      },
+      {
+        "q": "ReLU는 어떤 함수야?",
+        "expected": "DL-02",
+        "generator": "llm",
+        "cited": [
+          "DL-02"
+        ],
+        "answer": "ReLU 함수는 음수 입력에 0을, 양수 입력에 입력값을 그대로 출력하는 함수입니다.",
+        "note": null
+      },
+      {
+        "q": "다중 분류 출력층에 쓰는 활성화 함수",
+        "expected": "DL-02",
+        "generator": "extractive",
+        "cited": [
+          "DL-02"
+        ],
+        "answer": "뉴런의 출력에 비선형성을 주는 함수를 활성화 함수라고 합니다. 이진 분류의 출력층에는 0과 1 사이 값을 내는 시그모이드를, 다중 분류에는 소프트맥스를 씁니다.",
+        "note": "AI 답변이 근거 검사를 통과하지 못해 자료 원문으로 대신했어요(ungrounded)."
+      },
+      {
+        "q": "역전파가 뭐야?",
+        "expected": "DL-03",
+        "generator": "llm",
+        "cited": [
+          "DL-03"
+        ],
+        "answer": "역전파는 출력층에서 계산한 오차를 입력층으로 거꾸로 전달하며, 각 가중치의 기울기를 구하는 알고리즘입니다.",
+        "note": null
+      },
+      {
+        "q": "에폭이 무슨 뜻이야?",
+        "expected": "DL-03",
+        "generator": "llm",
+        "cited": [
+          "DL-03"
+        ],
+        "answer": "에폭은 전체 학습 데이터를 한 번 모두 학습하는 단위를 의미합니다.",
+        "note": null
+      },
+      {
+        "q": "CNN에서 풀링은 뭐 하는 거야?",
+        "expected": "DL-04",
+        "generator": "llm",
+        "cited": [
+          "DL-04"
+        ],
+        "answer": "풀링은 CNN에서 이미지의 크기를 줄이는 역할을 합니다.",
+        "note": null
+      },
+      {
+        "q": "LSTM은 왜 쓰는 거야?",
+        "expected": "DL-05",
+        "generator": "llm",
+        "cited": [
+          "DL-05"
+        ],
+        "answer": "LSTM은 이전 단계의 출력을 다음 단계에 반영해서, 순서가 있는 데이터를 더 잘 처리하기 위해 사용합니다.",
+        "note": null
+      },
+      {
+        "q": "어텐션이 뭐야?",
+        "expected": "DL-06",
+        "generator": "extractive",
+        "cited": [
+          "DL-06"
+        ],
+        "answer": "트랜스포머는 문장 속 단어들이 서로 얼마나 관련 있는지 계산하는 어텐션 메커니즘을 핵심으로 하는 구조이며, 순환 없이 병렬로 처리합니다.",
+        "note": "AI 답변이 근거 검사를 통과하지 못해 자료 원문으로 대신했어요(ungrounded)."
+      },
+      {
+        "q": "드롭아웃은 어떻게 과대적합을 막아?",
+        "expected": "DL-07",
+        "generator": "llm",
+        "cited": [
+          "DL-07"
+        ],
+        "answer": "드롭아웃은 학습 중 일부 뉴런을 무작위로 꺼서, 특정 뉴런에 의존하지 않게 하여, 모델이 특정 뉴런에 지나치게 의존하지 않도록 하여, 과대적합을 방지합니다.",
+        "note": null
+      },
+      {
+        "q": "토큰이랑 컨텍스트 윈도우가 뭐야?",
+        "expected": "LM-01",
+        "generator": "llm",
+        "cited": [
+          "LM-01"
+        ],
+        "answer": "토큰은 자연어의 한 글자를 의미하고, 컨텍스트 윈도우는 모델이 한 번에 처리할 수 있는 단어들의 범위를 의미합니다.",
+        "note": null
+      },
+      {
+        "q": "퓨샷과 제로샷 차이",
+        "expected": "LM-02",
+        "generator": "llm",
+        "cited": [
+          "LM-02"
+        ],
+        "answer": "퓨샷은 예시(샘플) 데이터를 여러 번 제공하여 모델이 특정 패턴을 학습하도록 하고, 제로샷은 예시 없이 바로 정답을 예측하도록 합니다.",
+        "note": null
+      },
+      {
+        "q": "LLM 환각이 뭐야?",
+        "expected": "LM-03",
+        "generator": "llm",
+        "cited": [
+          "LM-03"
+        ],
+        "answer": "LLM이 학습하지 않은 최신 정보나 존재하지 않는 문서를 질문할 때, 그럴듯한 가짜 정보를 만들어 내는 현상을 환각(hallucination)이라고 합니다.",
+        "note": null
+      },
+      {
+        "q": "RAG는 어떻게 동작해?",
+        "expected": "LM-04",
+        "generator": "llm",
+        "cited": [
+          "LM-04"
+        ],
+        "answer": "RAG는 질문과 관련된 문서를 먼저 검색하고, 그 내용을 프롬프트에 넣어 LLM이 답을 생성하게 하는 구조입니다.",
+        "note": null
+      },
+      {
+        "q": "임베딩은 뭐고 코사인 유사도는 왜 써?",
+        "expected": "LM-05",
+        "generator": "llm",
+        "cited": [
+          "LM-05"
+        ],
+        "answer": "임베딩은 문장을 의미가 담긴 숫자 벡터로 바꾸는 작업이고, 코사인 유사도는 벡터 공간에서 두 벡터의 유사도를 코사인 각도로 잰다.",
+        "note": null
+      },
+      {
+        "q": "벡터 DB는 뭐야?",
+        "expected": "LM-05",
+        "generator": "llm",
+        "cited": [
+          "LM-05"
+        ],
+        "answer": "벡터 데이터베이스는 벡터 데이터를 빠르게 저장하고 검색하는 데이터베이스입니다.",
+        "note": null
+      },
+      {
+        "q": "청크를 너무 길게 나누면 어떻게 돼?",
+        "expected": "LM-06",
+        "generator": "llm",
+        "cited": [
+          "LM-06"
+        ],
+        "answer": "청크를 너무 길게 나누면 관련 없는 내용이 섞이고, 너무 짧으면 맥락이 끊깁니다.",
+        "note": null
+      },
+      {
+        "q": "오버랩은 왜 두는 거야?",
+        "expected": "LM-06",
+        "generator": "llm",
+        "cited": [
+          "LM-06"
+        ],
+        "answer": "오버랩을 두는 이유는 앞뒤 청크를 일부 겹치게 하여 문맥이 끊기지 않도록 하기 위함입니다.",
+        "note": null
+      },
+      {
+        "q": "BM25가 뭐야?",
+        "expected": "LM-07",
+        "generator": "llm",
+        "cited": [
+          "LM-07"
+        ],
+        "answer": "BM25는 문서의 단어 빈도수로 점수를 매기는 키워드 기반 검색 알고리즘입니다. 단어가 정확히 일치해야 하므로, 의미가 비슷한 표현을 찾는 임베딩 검색과 섞어 쓰는 하이브리드 검색이 많이 쓰입니다.",
+        "note": null
+      },
+      {
+        "q": "하이브리드 검색이 뭐야?",
+        "expected": "LM-07",
+        "generator": "llm",
+        "cited": [
+          "LM-07"
+        ],
+        "answer": "하이브리드 검색은 키워드 기반 검색과 임베딩 기반 검색을 섞어서 사용하는 방식입니다. 단어가 정확히 일치해야 하므로, 의미가 비슷한 표현을 찾는 임베딩 검색과 섞어 쓰는 방식입니다.",
+        "note": null
+      },
+      {
+        "q": "파인튜닝이랑 RAG는 언제 각각 써?",
+        "expected": "LM-08",
+        "generator": "llm",
+        "cited": [
+          "LM-08"
+        ],
+        "answer": "파인튜닝은 모델의 가중치를 추가 데이터로 다시 학습시키는 방법이라 비용이 들고 최신 정보를 반영하기 어렵습니다. 반면 RAG는 문서만 바꾸면 되므로 자주 바뀌는 지식에 적합합니다. 말투나 형식처럼 모델의 행동을 바꾸고 싶을 때는 파인튜닝이 어울립니다.",
+        "note": null
+      },
+      {
+        "q": "RAG에서 답변 신뢰성을 높이는 방법",
+        "expected": "LM-09",
+        "generator": "llm",
+        "cited": [
+          "LM-09"
+        ],
+        "answer": "RAG에서 답변 신뢰성을 높이려면, 검색 점수가 낮은 문서는 답변 생성에 사용하지 않아야 합니다. 근거 문서가 명확하지 않으면, 답변의 신뢰도가 낮아집니다.",
+        "note": null
+      },
+      {
+        "q": "HTTP GET이랑 POST는 뭐가 달라?",
+        "expected": "WB-01",
+        "generator": "llm",
+        "cited": [
+          "WB-01"
+        ],
+        "answer": "GET은 데이터를 조회할 때 사용하고, POST는 데이터를 새로 만들 때 사용합니다.",
+        "note": null
+      },
+      {
+        "q": "404 에러는 무슨 뜻이야?",
+        "expected": "WB-01",
+        "generator": "extractive",
+        "cited": [
+          "WB-01"
+        ],
+        "answer": "응답 상태 코드 200은 성공, 404는 찾을 수 없음, 500은 서버 오류를 뜻합니다.",
+        "note": "AI 답변이 근거 검사를 통과하지 못해 자료 원문으로 대신했어요(ungrounded)."
+      },
+      {
+        "q": "REST API가 뭐야?",
+        "expected": "WB-02",
+        "generator": "llm",
+        "cited": [
+          "WB-02"
+        ],
+        "answer": "REST API는 HTTP 메서드로 동작을 표현하고, 주소로 자원을 나타내는 설계 방식입니다.",
+        "note": null
+      },
+      {
+        "q": "JSON은 어떤 형식이야?",
+        "expected": "WB-02",
+        "generator": "llm",
+        "cited": [
+          "WB-02"
+        ],
+        "answer": "JSON은 키와 값으로 이루어진 텍스트 형식입니다.",
+        "note": null
+      },
+      {
+        "q": "프런트엔드와 백엔드 차이",
+        "expected": "WB-03",
+        "generator": "llm",
+        "cited": [
+          "WB-03"
+        ],
+        "answer": "프런트엔드는 사용자 인터페이스(UI)를 만들고, 백엔드는 데이터 처리와 저장을 담당합니다.",
+        "note": null
+      },
+      {
+        "q": "기본키와 외래키가 뭐야?",
+        "expected": "WB-04",
+        "generator": "llm",
+        "cited": [
+          "WB-04"
+        ],
+        "answer": "기본키는 테이블에서 각 행을 유일하게 식별하는 열이고, 외래키는 다른 테이블의 기본키를 참조하는 열입니다.",
+        "note": null
+      },
+      {
+        "q": "SQLite는 어떤 데이터베이스야?",
+        "expected": "WB-05",
+        "generator": "llm",
+        "cited": [
+          "WB-05"
+        ],
+        "answer": "SQLite는 서버 없이 파일 하나로 동작하는 가벼운 데이터베이스입니다.",
+        "note": null
+      },
+      {
+        "q": "아두이노 setup과 loop 함수",
+        "expected": "WB-06",
+        "generator": "llm",
+        "cited": [
+          "WB-06"
+        ],
+        "answer": "setup 함수는 초기 설정을, loop 함수는 반복 실행을 담당합니다.",
+        "note": null
+      },
+      {
+        "q": "MQTT는 뭐야?",
+        "expected": "WB-07",
+        "generator": "llm",
+        "cited": [
+          "WB-07"
+        ],
+        "answer": "MQTT는 가볍고 효율적인 메시지 프로토콜로, 사물인터넷(IoT)에서 센서 데이터를 주고받을 때 주로 사용합니다.",
+        "note": null
+      },
+      {
+        "q": "센서 데이터를 서버로 보내는 방법",
+        "expected": "WB-07",
+        "generator": "llm",
+        "cited": [
+          "WB-07"
+        ],
+        "answer": "센서 데이터를 서버로 보낼 때는 시리얼 통신, Wi‑Fi, HTTP, MQTT 등 다양한 방법을 사용할 수 있습니다.",
+        "note": null
+      }
+    ],
+    "outRows": [
+      {
+        "q": "양자컴퓨터 원리 알려줘",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "오늘 서울 날씨 어때?",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "피자 맛있게 굽는 법",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "주식 투자 어떻게 시작해?",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "영어 문법 알려줘",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "BTS 최신 앨범 뭐야?",
+        "generator": "extractive",
+        "answer": "모델이 학습하지 않은 최신 정보나 사내 문서를 물을 때 자주 발생합니다. 모델을 다시 학습하지 않고도 최신 자료를 반영할 수 있고, 답의 근거가 되는 출처를 함께 보여 줄 수 있다는 것이 장점입니다."
+      },
+      {
+        "q": "제주도 여행 코스 추천해줘",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "월드컵 우승 국가는?",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "감기에 걸렸을 때 먹는 약",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "축구 규칙 설명해줘",
+        "generator": "extractive",
+        "answer": "머신러닝은 규칙을 사람이 직접 코딩하지 않고 데이터에서 패턴을 학습해 예측하는 기술입니다."
+      },
+      {
+        "q": "자동차 엔진 구조",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "한국 역사에서 임진왜란은 언제 일어났어?",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "강아지 훈련시키는 방법",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "비트코인 지금 사도 돼?",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "수학 미분 공식 알려줘",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "김치찌개 레시피",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "삼국지 주인공은 누구야?",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "고혈압에 좋은 운동",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "노트북 추천해줘",
+        "generator": "none",
+        "answer": "올려 두신 학습 자료에서 이 질문의 근거를 찾지 못했어요. 질문을 조금 더 구체적으로 바꾸거나, 자료함에 관련 자료를 추가해 보세요."
+      },
+      {
+        "q": "카페 창업 비용",
+        "generator": "extractive",
+        "answer": "파인튜닝은 모델의 가중치를 추가 데이터로 다시 학습시키는 방법이라 비용이 들고 최신 정보를 반영하기 어렵습니다."
+      }
+    ]
+  }
+}

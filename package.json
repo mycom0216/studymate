@@ -1,0 +1,13 @@
+{
+  "name": "studymate",
+  "version": "1.0.0",
+  "description": "StudyMate - RAG 챗봇 기반 AI 맞춤형 학습 지원 시스템",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24.0.0" },
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "eval": "node tools/eval.mjs"
+  }
+}
