@@ -10,3 +10,7 @@ tmp/
 __pycache__/
 *.pyc
 ~$*
+# Keep personal uploaded study materials and SQLite sidecars out of Git.
+data/materials/
+data/**/\*.db-wal
+data/**/\*.db-shm

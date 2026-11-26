@@ -98,3 +98,8 @@ API: `POST /api/chat` · `POST /api/chat/:id/feedback` · `POST /api/quiz` · `P
 ## 2026-11-26 인수인계 검증
 
 원본 ZIP을 기준으로 도구 파일 5개에 주석을 보강하고 단위 테스트 30/30 및 일반·어려운 질문·범위 밖 질문·132개 규칙 퀴즈 평가를 재현했다(Node.js 22.16 로컬). Node.js 24 이상이 공식 목표 환경이다. 결과보고서의 F13 카카오 스킬 누락 및 역사적 LLM 중앙값(2.55초)을 정정했다. [문서 목록](docs/README.md) 및 `evidence/handover-eval-2026-11-26.json` 참고. 실제 Claude/ChatGPT 호출·카카오 채널 연동·인증·실사용자 검증은 포함하지 않는다.
+
+
+## 공개 시연용 DB
+
+가상 학습자 2명과 학습 기록을 포함한 [SQLite 데모 DB](data/demo/studymate.db)를 제공합니다. [사용 및 재생성 안내](data/demo/README.md)를 참고하세요. 개인 학습 데이터가 포함된 실행용 DB는 계속 Git에서 제외합니다.
